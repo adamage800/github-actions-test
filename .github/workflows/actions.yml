@@ -1,15 +1,25 @@
 name: Actions workflow
 
 on:
-#  push:
-#  schedule:
-#    - cron: "0/5 * * * *"
   pull_request:
     types:
       - closed
       - assigned
       - opened
       - reopened
+#  push:
+#    branches:
+#      - master
+#      - demo
+#      - staging
+#      - 'feature/*' # matches feature/yolo, and not feature/okay/no
+#      - 'feature/**' # matches everything above
+##    branches-ignore:
+##      - yolo
+#    tags:
+#      - 'v1.*'
+#    paths:
+#      - '**.js' # any js file in our repo changes
 
 jobs:
   run-github-actions:
