@@ -1,5 +1,5 @@
 name: Matrix
-on: push
+on: pull_request
 
 jobs:
   node-version:
@@ -8,6 +8,13 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
         node_version: [6, 7, 8]
+        include: # ez nem hozzáad egy újat, csak új változókat lehet hozzáadni bizonyos helyekre
+          - os: ubuntu-latest
+            node_version: 8
+            is_ubuntu_8: igen
+        exclude:
+          - os: ubuntu-latest
+            node_version: 6
       #fail-fast: true
       #max-parallel: 3
     steps:
